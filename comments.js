@@ -3,20 +3,17 @@ $(function(){
   var i = 0;
   $('#new_comment_button').click(function(){
 
-    var justMadeThing = $('<form id= "new_comment"> \
-          <textarea id= "com" name="comment"></textarea><br> \
-          <input id= "author" type= "text" name= "author"> \
+    $('#new_comment_button').hide();
+
+    var new_comment = $('<form id= "new_comment"> \
+          Comment<textarea id="com" name="comment"></textarea><br> \
+          Author<br><input id= "author" type= "text" name= "author"> \
           <input id= "submit" type= "submit" value= "submit"> \
         </form>')
 
-    $("#comment_list").append(justMadeThing)
+    $("#comment_list").append(new_comment)
 
-
-    $(justMadeThing).click(function(){
-      console.log(personalMessage)
-    })
-
-    $(justMadeThing).submit(function(event){
+    $(new_comment).submit(function(event){
 
       event.preventDefault();
 
@@ -29,6 +26,7 @@ $(function(){
             comment +
             '<span class="author">' + author + '</span> </li>'
           );
+        $('#new_comment_button').show();
       }
     })
   });
